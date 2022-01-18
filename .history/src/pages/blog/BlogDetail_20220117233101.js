@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Blog.css";
+import { useParams } from "react-router-dom";
 import BlogSideMenu from "./BlogSideMenu";
+import blogService from "./../../services/blogService";
 import BlogComment from "./BlogComment";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ActionTypes from "../../stores/action";
+import commentService from "../../services/commentService";
+
 const BlogDetail = () => {
   const blog = useSelector((state) => state.blog.blog);
   const comments = useSelector((state) => state.blog.comments);
+  console.log(comments);
+  console.log(blog);
   return (
     <>
       <div className="container">

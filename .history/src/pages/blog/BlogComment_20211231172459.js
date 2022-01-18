@@ -1,4 +1,4 @@
-import React, {useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import commentService from "../../services/commentService";
 // import { useFormik } from "formik";
 // import * as Yup from "yup";
@@ -8,6 +8,7 @@ import ActionTypes from "../../stores/action";
 import { useNavigate } from "react-router-dom";
 
 const BlogComment = ({ blogId }) => {
+  const [comments, setComments] = useState([]);
   const isLogin = useSelector((state) => state.auth.isLogin);
   const user = useSelector((state) => state.auth.dataUser);
   const getCmtId = useSelector((state) => state.blog.comments);
